@@ -1,0 +1,17 @@
+{% extends "base.html.jinja" %}
+
+{% block links %}
+    <link rel="stylesheet" href="../static/css/category.css">
+{% endblock %}
+
+{% block main %}
+    <main class="main main_catalog">
+        {% for snippet in snippets %}
+            <a href="{{ snippet }}.html" class="a-snippet">
+                <div class="card-snippet">
+                    <h3 class="title-snippet">{{ snippet.title() }}</h3>
+                </div>
+            </a>
+        {% endfor %}
+    </main>
+{% endblock %}

@@ -1,0 +1,50 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.category {
+    color: white;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 1em;
+
+    transition: 200ms;
+}
+
+.category:visited {
+    color: white;
+}
+
+.category:hover {
+    background-color: blueviolet;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+
+    height: 3em;
+    background-color: rgb(101, 19, 179);
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main {
+    width: 65vw;
+    padding: 50px 0;
+    margin: auto;
+}
