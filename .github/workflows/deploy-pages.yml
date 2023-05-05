@@ -36,11 +36,6 @@ jobs:
         
       - name: Build page
         run: python build.py
-        
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          path: page/
           
       - name: Deploy to GitHub Pages
         id: deployment
