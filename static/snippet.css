@@ -1,9 +1,13 @@
-.cols {
+.split {
     display: flex;
     gap: 80px;
 }
 
-.col_code {
+.split_H {
+    flex-direction: column;
+}
+
+.split_V .code {
     flex-grow: 1;
 }
 

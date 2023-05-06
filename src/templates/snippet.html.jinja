@@ -7,12 +7,12 @@
 
 {% block main %}
     <main class="main">
-        <div class="cols">
+        <div class="split split_{{ settings.split }}">
             <div class="col_demo demo">
                 {{ html }}
             </div>
 
-            <div class="col_code code">
+            <div class="code">
                 <div class="code-block">
                     <h4 class="code-block__title">HTML</h4>
                     <pre><code class="language-html code-block__code">{{ code_html }}</code></pre>

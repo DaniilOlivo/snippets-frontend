@@ -1,4 +1,5 @@
 import shutil
+import json
 from os import path, listdir, mkdir
 from jinja2 import Environment, PackageLoader
 
@@ -12,6 +13,9 @@ FOLDER_STATIC_SNIPPETS = path.join(FOLDER_BUILD, "static")
 HTML_SNIPPET = "index.html"
 CSS_SNIPPET = "style.css"
 JS_SNIPPET = "script.js"
+JSON_SNIPPET = "settings.json"
+
+DEFAULT_SETTINGS = "settings_default.json"
 
 env = Environment(loader=PackageLoader("src"))
 
@@ -99,6 +103,14 @@ def build():
                 "code_css": code_css,
                 "code_js": code_js,
             }
+
+            snippet_settings = path.join(snippet_folder, JSON_SNIPPET)
+            if path.exists(snippet_settings):
+                file_settings = snippet_settings
+            else:
+                file_settings = path.join(PATH_SCRIPT, DEFAULT_SETTINGS)
+
+            context["settings"] = json.loads(read_file(file_settings))
 
             build_template("snippet", context, snippet)
 
