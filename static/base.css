@@ -43,6 +43,10 @@ header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+nav {
+    display: flex;
+}
+
 .main {
     width: 65vw;
     padding: 50px 0;
