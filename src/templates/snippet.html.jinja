@@ -18,15 +18,19 @@
                     <pre><code class="language-html code-block__code">{{ code_html }}</code></pre>
                 </div>
                 
-                <div class="code-block">
-                    <h4 class="code-block__title">CSS</h4>
-                    <pre><code class="language-css code-block__code">{{ code_css }}</code></pre>
-                </div>
+                {% if code_css %}
+                    <div class="code-block">
+                        <h4 class="code-block__title">CSS</h4>
+                        <pre><code class="language-css code-block__code">{{ code_css }}</code></pre>
+                    </div>
+                {% endif %}
 
-                <div class="code-block">
-                    <h4 class="code-block__title">JS</h4>
-                    <pre><code class="language-js code-block__code">{{ code_js }}</code></pre>
-                </div>
+                {% if code_js %}
+                    <div class="code-block">
+                        <h4 class="code-block__title">JS</h4>
+                        <pre><code class="language-js code-block__code">{{ code_js }}</code></pre>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </main>

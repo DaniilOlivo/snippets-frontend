@@ -38,7 +38,10 @@ def build_template(name_tempalte: str, context={}, name_build_html=""):
 
 
 def copy_static(path_src_file: str, new_name_file: str):
-    shutil.copyfile(path_src_file, path.join(FOLDER_STATIC_SNIPPETS, new_name_file))
+    if path.exists(path_src_file):
+        shutil.copyfile(path_src_file, path.join(FOLDER_STATIC_SNIPPETS, new_name_file))
+        return read_file(path_src_file)
+    return None
 
 
 def create_structure():
@@ -86,15 +89,15 @@ def build():
             
             snippet_css = path.join(snippet_folder, CSS_SNIPPET)
             snippet_js = path.join(snippet_folder, JS_SNIPPET)
-            copy_static(snippet_css, snippet + ".css")
-            copy_static(snippet_js, snippet + ".js")
+            code_css = copy_static(snippet_css, snippet + ".css")
+            code_js = copy_static(snippet_js, snippet + ".js")
 
             context = {
                 "title_snippet": snippet,
                 "html": html_code,
                 "code_html": format_html(html_code),
-                "code_css": read_file(snippet_css),
-                "code_js": read_file(snippet_js),
+                "code_css": code_css,
+                "code_js": code_js,
             }
 
             build_template("snippet", context, snippet)
