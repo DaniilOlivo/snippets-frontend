@@ -6,6 +6,7 @@ PATH_SCRIPT = path.dirname(__file__)
 
 FOLDER_BUILD = path.join(PATH_SCRIPT, "page")
 FOLDER_SNIPPETS = path.join(PATH_SCRIPT, "snippets")
+FOLDER_STATIC = path.join(PATH_SCRIPT, "static")
 FOLDER_STATIC_SNIPPETS = path.join(FOLDER_BUILD, "static")
 
 HTML_SNIPPET = "index.html"
@@ -69,6 +70,10 @@ def build():
         create_structure()
 
     build_template("index")
+
+    for static_file_name in listdir(FOLDER_STATIC):
+        static_file_path = path.join(FOLDER_STATIC, static_file_name)
+        copy_static(static_file_path, static_file_name)
 
     for category in listdir(FOLDER_SNIPPETS):
         snippets_title = []
