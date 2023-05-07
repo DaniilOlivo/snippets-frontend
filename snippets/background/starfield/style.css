@@ -1,0 +1,36 @@
+.starfield {
+    background: #ffa17f;
+    background: -webkit-linear-gradient(to right, #00223e, #ffa17f);
+    background: linear-gradient(to right, #00223e, #ffa17f);
+    overflow: hidden;
+
+    height: 30vh;
+}
+
+.star {
+    opacity: 1;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.star0 {
+    width: 1px;
+    height: 1px;
+    border-radius: 0px;
+}
+
+.star1 {
+    width: 2px;
+    height: 2px;
+}
+
+.star2 {
+    width: 3px;
+    height: 3px;
+}
+
+.star3 {
+    width: 4px;
+    height: 4px;
+}
