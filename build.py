@@ -41,11 +41,21 @@ def build_template(name_tempalte: str, context={}, name_build_html=""):
         f.write(template.render(**context))
 
 
-def copy_static(path_src_file: str, new_name_file: str):
+def copy_static(path_src_file: str, new_name_file: str, return_data=True):
     if path.exists(path_src_file):
-        shutil.copyfile(path_src_file, path.join(FOLDER_STATIC_SNIPPETS, new_name_file))
-        return read_file(path_src_file)
+        shutil.copy2(path_src_file, path.join(FOLDER_STATIC_SNIPPETS, new_name_file))
+        if return_data:
+            return read_file(path_src_file)
     return None
+
+
+def copy_folder(folder):
+    for static_file_name in listdir(folder):
+        static_file_path = path.join(folder, static_file_name)
+        if path.isfile(static_file_path):
+            copy_static(static_file_path, static_file_name, False)
+        if path.isdir(static_file_path):
+            copy_folder(static_file_path)
 
 
 def create_structure():
@@ -78,9 +88,7 @@ def build():
 
     build_template("index")
 
-    for static_file_name in listdir(FOLDER_STATIC):
-        static_file_path = path.join(FOLDER_STATIC, static_file_name)
-        copy_static(static_file_path, static_file_name)
+    copy_folder(FOLDER_STATIC)
 
     for category in listdir(FOLDER_SNIPPETS):
         snippets_title = []
