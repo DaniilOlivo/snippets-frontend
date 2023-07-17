@@ -7,6 +7,12 @@
 
 {% block main %}
     <main class="main">
+        {% if settings.link %}
+            <div class="block-link">
+                Source:
+                <a href="{{ settings.link }}" target="_blank">{{ settings.link }}</a>
+            </div>
+        {% endif %}
         <div class="split split_{{ settings.split }}">
             <div class="col_demo demo">
                 {{ html }}

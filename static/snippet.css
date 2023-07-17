@@ -1,3 +1,20 @@
+.block-link {
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.block-link a {
+    transition: 200ms;
+    color: blueviolet;
+}
+
+.block-link a:hover {
+    color: orangered;
+}
+
 .split {
     display: flex;
     gap: 80px;
